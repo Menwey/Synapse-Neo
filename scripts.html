@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synapse Neo | Scripts Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --deep-space: #08080a;
+        }
+        body {
+            background-color: var(--deep-space);
+            color: #e0e0e0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+        }
+        .script-card {
+            background: #111114;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .script-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .code-block {
+            font-family: 'JetBrains Mono', monospace;
+            background: #050507;
+        }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-blue-500/10 border-b border-blue-500/20 text-center py-2 text-[10px] font-bold tracking-[0.3em] uppercase text-blue-400">
+        Script Hub | Last Updated: Jan 2026
+    </div>
+
+    <header class="flex justify-between items-center px-8 py-8 max-w-7xl mx-auto">
+        <div class="text-2xl font-black tracking-tighter flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-mono">S</div>
+                <span>SYNAPSE <span class="text-blue-500 font-light">NEO</span></span>
+            </a>
+        </div>
+        <nav class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest text-gray-500">
+            <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+            <a href="#" class="text-white border-b border-blue-500 pb-1">Scripts</a>
+            <a href="https://t.me/твой_канал" class="hover:text-[#229ED9] transition">Telegram</a>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="mb-12 fade-in">
+            <h1 class="text-4xl font-extrabold mb-4">Community <span class="text-blue-500">Scripts</span></h1>
+            <p class="text-gray-500">Лучшие скрипты, оптимизированные под Synapse Neo L3-4.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in" style="animation-delay: 0.1s">
+            
+            <div class="script-card p-6 rounded-2xl">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-xl">Universal ESP</h3>
+                    <span class="text-[10px] bg-blue-600/20 text-blue-400 px-2 py-1 rounded">Visuals</span>
+                </div>
+                <p class="text-gray-500 text-sm mb-6">Подсвечивает игроков сквозь стены, отображает ники и дистанцию. Работает во всех играх.</p>
+                <div class="code-block p-3 rounded-lg text-[11px] text-gray-400 mb-6 overflow-x-hidden truncate">
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/Menwey/Synapse-NeoScripts/refs/heads/main/ESP.lua"))()
+                </div>
+                <button onclick="navigator.clipboard.writeText('loadstring(game:HttpGet(\'ССЫЛКА_ТУТ\'))()')" class="w-full bg-white/5 hover:bg-white/10 py-3 rounded-xl font-bold text-xs transition uppercase tracking-widest">
+                    Copy Script
+                </button>
+            </div>
+            <div class="script-card p-6 rounded-2xl">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-xl">Anti-AFK System</h3>
+                    <span class="text-[10px] bg-purple-600/20 text-purple-400 px-2 py-1 rounded">Core</span>
+                </div>
+                <p class="text-gray-500 text-sm mb-6">Предотвращает выкидывание из игры за бездействие..</p>
+                <div class="code-block p-3 rounded-lg text-[11px] text-gray-400 mb-6 overflow-x-hidden truncate">
+                    loadstring(game:HttpGet('https://raw.githubusercontent.com/Menwey/Synapse-NeoScripts/refs/heads/main/AntiAfk.lua'))()
+                </div>
+                <button class="w-full bg-white/5 hover:bg-white/10 py-3 rounded-xl font-bold text-xs transition uppercase tracking-widest">
+                    Copy Script
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-12 text-center opacity-30 text-[10px] tracking-[0.4em] uppercase font-bold mt-20">
+        &copy; 2026 Synapse Neo Hub
+    </footer>
+
+</body>
+</html>
+
