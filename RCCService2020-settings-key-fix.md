@@ -138,22 +138,3 @@ RCCService.exe -console -verbose -port 1621
 6. старт SOAP-сервиса (`sub_573BE0`, `Service starting` → `Service started on port %d`)
 
 По тому, на какой строке обрывается вывод `-console -verbose`, видно, какой шаг сломался.
-
----
-
-## Приложение: методика реверса
-
-IDA Professional 9.0 установлена в `C:\Program Files\IDA Professional 9.0`, но headless-режим не запускается:
-
-```
-Could not acquire license: File not found: ida*.hexlic
-```
-
-Лицензия лежит в `C:\Users\user\Desktop\ida-pro-9.0-crack-windows\licence\ida.hexlic` и `D:\1df\idapro.hexlic`, но не скопирована в каталог IDA. Чтобы пользоваться `idat64.exe -A -S<script>`, файл нужно положить рядом с `ida64.exe`.
-
-Вместо IDA использованы `capstone` + `pefile` (Python 3.14). Схема работы:
-
-1. вытащить строки из `.rdata`/`.data` с их виртуальными адресами;
-2. найти ссылки на строку поиском 4-байтового little-endian VA внутри `.text` (x86 без RIP-relative — адрес лежит в `push` как immediate);
-3. найти начало функции сканированием назад до пролога `55 8B EC`, отсечённого `CC`/`C3`, с проверкой линейным дизассемблированием;
-4. найти вызывающих — брутфорс `E8 rel32` по всей `.text` с пересчётом цели.
